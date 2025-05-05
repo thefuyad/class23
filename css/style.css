@@ -1,0 +1,318 @@
+/* all comon css start here */
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: "Archivo Black", sans-serif;
+}
+a,a:hover{
+    text-decoration: none;
+    display: inline-block;
+}
+ul,ol{
+    list-style-type: none;
+}
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+    padding: 0;
+    line-height: 0.8;
+}
+/* all comon css end here */
+
+/* header part start */
+.nav-link{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    padding: 0 35px !important;
+}
+.nav-link:hover{
+    color: #B88E2F;
+
+}
+
+
+.icons i{
+    padding: 0 15px;
+    color: #000;
+}
+.icons i:hover{
+    color: #B88E2F;
+}
+/* header part end */
+/* banner paart start */
+.bannercard2{
+    padding-top:155px;
+    padding-bottom: 115px;
+    background: url(../images/2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.bannercard{
+    background: #FFF3E3;
+    padding: 65px 65px 40px 40px;
+    
+}
+.bannercard h4{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+}
+.bannercard h1{
+    font-size: 52px;
+    font-weight: 700;
+    color: #B88E2F;
+    width: 450px;
+    line-height: 65px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+.bannercard p{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333333;
+    line-height: 24px;
+}
+.bannercard a{
+    margin-top:50px;
+    padding: 30px 65px;
+    background: #B88E2F;
+    color: #fff !important;
+    font-size: 16px;
+    font-weight: 700;
+
+}
+/* banner paart end */
+/* bowser the range part start here */
+#bowsaerrange{
+    padding: 65px 0;
+}
+.rangecontent h3{
+    font-size: 32px;
+    font-weight: 700;
+    color: #333333;
+}
+.rangecontent p{
+    font-size: 13px;
+    font-weight: 400;
+    color: #333333;
+    padding-top:10px ;
+    padding-bottom: 65px;
+}
+.col-lg-4 h3{
+    font-size: 20px;
+    font-weight: 700;
+    color: #333333;
+    padding-bottom: 10px;
+    align-items: center;
+
+}
+/* bowser the range part end here */
+
+/* product part start here */
+
+#productpart{
+    padding: 50px 0;
+}
+/* .producttaitle{
+    text-align: center;
+} */
+.producttaitle h3{
+    font-size: 40px;
+    font-weight: 700;
+    color: #333333;
+}
+.badge{
+    height: 48px;
+    width: 48px;
+    background: #B88E2F;
+    border-radius: 50%;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.productimg{
+    position: relative;
+}
+.badge p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 10px;
+}
+.producttext{
+    background:#F4F5F7;
+    padding: 15px 15px 25px 15px;
+}
+.producttext h3{
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+}
+.producttext h4{
+    font-size: 10px;
+    font-weight: 600;
+    color: #333333;
+    padding: 15px 0;
+}
+.producttext p{
+    font-size: 20px;
+    font-weight: 600;
+}
+.producttext del{
+    font-size: 10px;
+    font-weight: 600;
+    color: #333333;
+}
+.productitem{
+    position: relative;
+}
+.productoverley{
+    height: 100%;
+    width: 100%;
+    background:rgb(51, 51, 51, 0.72);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+
+}
+.overleybtn a{
+    padding: 15px 30px;
+    background: #fff;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 150px;
+    font-size: 13px;
+    text-align: center;
+}
+.icons2{
+    width: 100%;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    align-items: center;
+    text-align: center;
+}
+.icons2 i {
+    color: #fff;
+}
+.icons2 a{
+    color: #fff;
+}
+.productitem:hover .productoverley{
+    opacity: 1;
+    visibility: visible;
+}
+.showmorebtn a{
+    padding: 15px 30px;
+    color: #B88E2F;
+    background:transparent;
+    border: 2px solid #B88E2F;
+}
+.showmorebtn a:hover{
+    background: #B88E2F;
+    color: #ffffff;
+}
+
+/* product part end here */
+
+/* end part start here */
+#lastpart::before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #333333;
+    margin-top: 10px;
+}
+.lastpart2::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #333333;
+    margin-top: 10px;
+}
+
+.box{
+    display: flex;
+    padding-top:30px;
+}
+.logo2{
+    width: 300px;
+    font-size: 13px;
+}
+.logo2 h1{
+    font-size: 30px;
+}
+.logo2 p{
+    padding: 200px 0;
+    color: #7a7777;
+}
+.link2 h1{
+    font-size: 20px;
+    font-weight: 600;
+    color: #838080;
+    padding:0 100px
+}
+.link2 h3{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    padding: 80px 100px;
+}
+.help{
+    width: 450px;
+}
+.help h1{
+    font-size: 20px;
+    font-weight: 600;
+    color: #838080;
+    padding:0 100px
+}
+.help h3{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    padding: 80px 100px;
+}
+.newsletter{
+    width: 700px;
+}
+.newsletter h1{
+    font-size: 20px;
+    font-weight: 600;
+    color: #838080;
+    padding:0 60px
+}
+.newsletter h3{
+    font-size: 13px;
+    font-weight: 600;
+    color: #858080;
+    padding: 80px 60px;
+}
+.newsletter h3 ::after{
+    content: '';
+    display: block;
+    width: 50%;
+    height: 1px;
+    background: #333333;
+    margin-top: 10px;
+}
+.newsletter span{
+    padding: 0 20px;
+    color: #000;
+}
+/* end part end here */
+
+
+
