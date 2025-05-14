@@ -1,0 +1,341 @@
+const M = (e) => ({
+  "Content-Type": "application/json",
+  Accept: "application/json",
+  "Internal-auth-token": e || ""
+});
+async function P(e) {
+  try {
+    return await p(`${e.domainUrl}/api/v1/product/generate-names`, e);
+  } catch (a) {
+    console.error("Error fetching product name:", a);
+  }
+}
+async function I(e) {
+  try {
+    return await p(`${e.domainUrl}/api/v1/product/generate-descriptions`, e);
+  } catch (a) {
+    console.error("Error fetching product description:", a);
+  }
+}
+async function A(e) {
+  try {
+    return await p(`${e.domainUrl}/api/v1/product/generate-tags`, e);
+  } catch (a) {
+    console.error("Error fetching product tags:", a);
+  }
+}
+async function p(e, { token: a, domainUrl: r, onLimitReached: i, ...n }) {
+  try {
+    const d = await (await fetch(e, {
+      headers: M(a),
+      body: JSON.stringify(n),
+      method: "POST"
+    })).json();
+    if (!(d != null && d.chatId)) {
+      console.warn("No chatId found in response"), d.error === "user_request_limit_reached" && typeof i == "function" && i();
+      return;
+    }
+    return console.log("Fetch response:", d, "Domain URL:", r), await R({ token: a, chatId: d.chatId, domainUrl: r });
+  } catch (c) {
+    console.error("Error in basicFetch:", c);
+  }
+}
+async function R({ token: e, chatId: a, domainUrl: r }) {
+  try {
+    let i, n;
+    do {
+      if (i = await fetch(`${r}/api/v1/chats/products/${a}`, {
+        headers: M(e)
+      }), n = await i.json(), console.log("Chat data:", n), n.error)
+        return console.error("Error in chat data:", n.error), [];
+      await new Promise((c) => setTimeout(c, 1e3));
+    } while (n.status !== "ready");
+    return n == null ? void 0 : n.data;
+  } catch (i) {
+    console.error("Error in getInfoFromChat:", i);
+  }
+}
+async function T(e) {
+  try {
+    return await p(`${e.domainUrl}/api/v1/product/translate`, e);
+  } catch (a) {
+    console.error("Error fetching product tags:", a);
+  }
+}
+const H = {
+  name: {
+    toneOfVoice: !0,
+    length: !0
+  },
+  tags: {
+    toneOfVoice: !0
+  },
+  description: {
+    toneOfVoice: !0,
+    length: !0,
+    structure: !0
+  }
+}, q = {
+  name: P,
+  tags: A,
+  description: I
+}, U = ["Neutral", "Formal", "Friendly"], B = ["Shorter", "Same", "Detailed"], V = ["Plain Text", "Structured"], G = "zd-ai-widget-state", L = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='17'%20height='16'%20fill='none'%3e%3cg%20clip-path='url(%23a)'%3e%3cpath%20d='M10.734%202.663A.362.362%200%200%200%2010.5%203c0%20.15.094.284.234.337%200%200%201.245.142%201.766.663.52.52.662%201.766.662%201.766a.362.362%200%200%200%20.675%200S13.98%204.52%2014.5%204c.52-.52%201.766-.663%201.766-.663A.362.362%200%200%200%2016.5%203a.362.362%200%200%200-.234-.337S15.02%202.52%2014.5%202c-.52-.52-.662-1.766-.662-1.766a.362.362%200%200%200-.675%200S13.02%201.48%2012.5%202c-.52.52-1.766.663-1.766.663ZM6.91%202.29a.498.498%200%200%200-.906%200s-.565%202.478-1.65%203.562C3.27%206.936.791%207.5.791%207.5a.5.5%200%200%200%200%20.91s2.481.561%203.565%201.646C5.44%2011.14%206%2013.62%206%2013.62a.498.498%200%200%200%20.906%200s.563-2.481%201.647-3.566C9.638%208.97%2012.12%208.406%2012.12%208.406a.498.498%200%200%200%200-.906S9.64%206.94%208.556%205.856C7.471%204.772%206.91%202.291%206.91%202.291ZM12.5%2012c-.52.52-1.766.662-1.766.662A.362.362%200%200%200%2010.5%2013c0%20.15.094.284.234.338%200%200%201.245.141%201.766.662.52.52.662%201.766.662%201.766a.362.362%200%200%200%20.675%200S13.98%2014.52%2014.5%2014c.52-.52%201.766-.662%201.766-.662A.362.362%200%200%200%2016.5%2013a.362.362%200%200%200-.234-.338S15.02%2012.521%2014.5%2012c-.52-.52-.662-1.766-.662-1.766A.362.362%200%200%200%2013.5%2010a.362.362%200%200%200-.338.234S13.021%2011.48%2012.5%2012Z'%20fill='%23fff'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='a'%3e%3cpath%20fill='%23fff'%20transform='translate(.5)'%20d='M0%200h16v16H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e", W = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%3e%3cpath%20d='M13.3337%204L6.00033%2011.3333L2.66699%208'%20stroke='white'%20stroke-width='1.6'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e", Z = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%3e%3cg%20clip-path='url(%23clip0_3_6455)'%3e%3cmask%20id='mask0_3_6455'%20style='mask-type:luminance'%20maskUnits='userSpaceOnUse'%20x='0'%20y='0'%20width='16'%20height='16'%3e%3cpath%20d='M16%200H0V16H16V0Z'%20fill='white'/%3e%3c/mask%3e%3cg%20mask='url(%23mask0_3_6455)'%3e%3cpath%20d='M5.78595%202.68175C2.84881%203.90351%201.45819%207.27507%202.67995%2010.2122C3.30583%2011.7168%204.49589%2012.8156%205.90274%2013.3652'%20stroke='white'%20stroke-width='1.6'%20stroke-miterlimit='10'%20stroke-linecap='round'/%3e%3c/g%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_3_6455'%3e%3crect%20width='16'%20height='16'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e", u = {
+  en: {
+    Neutral: "Neutral",
+    Formal: "Formal",
+    Friendly: "Friendly",
+    Shorter: "Shorter",
+    Same: "Same",
+    Detailed: "More Detailed",
+    "Plain Text": "Plain",
+    Structured: "Structured",
+    "Tone of voice": "Tone of voice",
+    Length: "Length",
+    Structure: "Structure",
+    "Add emoji": "Add emoji"
+  },
+  pt: {
+    Neutral: "Neutro",
+    Formal: "Formal",
+    Friendly: "Amigável",
+    Shorter: "Curto",
+    Same: "Mesmo",
+    Detailed: "Mais detalhado",
+    "Plain Text": "Texto simples",
+    Structured: "Estruturado",
+    "Tone of voice": "Tom de voz",
+    Length: "Comprimento",
+    Structure: "Estrutura",
+    "Add emoji": "Adicionar emoji"
+  },
+  fr: {
+    Neutral: "Neutre",
+    Formal: "Formel",
+    Friendly: "Amical",
+    Shorter: "Plus court",
+    Same: "Même",
+    Detailed: "Plus détaillé",
+    "Plain Text": "Texte brut",
+    Structured: "Structuré",
+    "Tone of voice": "Ton de voix",
+    Length: "Longueur",
+    Structure: "Structure",
+    "Add emoji": "Ajouter un emoji"
+  },
+  de: {
+    Neutral: "Neutral",
+    Formal: "Formell",
+    Friendly: "Freundlich",
+    Shorter: "Kürzer",
+    Same: "Gleich",
+    Detailed: "Detaillierter",
+    "Plain Text": "Einfacher Text",
+    Structured: "Strukturiert",
+    "Tone of voice": "Tonlage",
+    Length: "Länge",
+    Structure: "Struktur",
+    "Add emoji": "Emoji hinzufügen"
+  }
+};
+function z() {
+  return {
+    toneOfVoice: u.en.Neutral,
+    length: u.en.Same,
+    structure: u.en.Structured,
+    addEmoji: !0,
+    mode: null,
+    language: "en",
+    $root: null,
+    isLoading: !1,
+    theme: "light",
+    isReady: !1,
+    initialOutput: null,
+    tokenData: {},
+    onGetData: () => {
+    },
+    onRollbackClick: () => {
+    },
+    fetchedData: [],
+    domainUrl: "",
+    productName: "",
+    productDescription: "",
+    tags: "",
+    onLimitReached: () => {
+    },
+    originalProductName: "",
+    originalDescription: "",
+    originalTags: ""
+  };
+}
+let l = {};
+function J(e) {
+  const a = z(), r = `${G} ${e == null ? void 0 : e.id}`, i = (e == null ? void 0 : e.id) && JSON.parse(localStorage.getItem(r));
+  return i && Object.assign(a, i, { isLoading: !1, isReady: !1 }), l[e == null ? void 0 : e.id] = new Proxy(a, {
+    set: (n, c, d) => (n[c] = d, n.$root && localStorage.setItem(r, JSON.stringify(n)), !0)
+  }), l[e == null ? void 0 : e.id];
+}
+function $(e) {
+  const a = l[e].$root, r = a.querySelector(".init-button img"), i = a.querySelector(".rollback-button"), n = a.querySelector(".settings-button"), c = a.querySelector(".init-button");
+  return { icon: r, rollbackButton: i, settingsButton: n, initButton: c };
+}
+function S(e, a) {
+  l[a].isLoading = e;
+  const { icon: r, rollbackButton: i, settingsButton: n } = $(a);
+  e ? (i.classList.add("d-none"), n.classList.add("d-none")) : (n.classList.remove("d-none"), i.classList.remove("d-none")), r.setAttribute("src", e ? Z : L), r.classList.toggle("loading", e);
+}
+async function K(e, a) {
+  const { icon: r, rollbackButton: i, settingsButton: n, initButton: c } = $(a);
+  l[a].isReady = e, r.setAttribute("src", W), n.classList.add("d-flex"), i.classList.remove("d-none"), i.classList.add("d-flex"), c.classList.add("is-ready"), setTimeout(() => {
+    r.setAttribute("src", L), l[a].isReady = !1, c.classList.remove("is-ready");
+  }, 1e3);
+}
+function Y(e, a) {
+  if (!l[e]) {
+    console.error(`State with id ${e} does not exist.`);
+    return;
+  }
+  console.log("Current State:", l[e]), Object.assign(l[e], a);
+}
+const Q = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%3e%3cpath%20d='M2.66406%205.66667H9.33073C11.5399%205.66667%2013.3307%207.45753%2013.3307%209.66667C13.3307%2011.8758%2011.5399%2013.6667%209.33073%2013.6667H3.9974M2.66406%205.66667L5.33073%203M2.66406%205.66667L5.33073%208.33333'%20stroke='%232E2F39'%20stroke-width='1.6'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e", X = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%3e%3cpath%20d='M2%205L8%205M14%205L12%205'%20stroke='%232E2F39'%20stroke-width='1.4'%20stroke-linecap='round'/%3e%3cpath%20d='M14%2011L6%2011'%20stroke='%232E2F39'%20stroke-width='1.4'%20stroke-linecap='round'/%3e%3cpath%20d='M11.8%205C11.8%205.99411%2010.9941%206.8%2010%206.8C9.00589%206.8%208.2%205.99411%208.2%205C8.2%204.00589%209.00589%203.2%2010%203.2C10.9941%203.2%2011.8%204.00589%2011.8%205Z'%20stroke='%232E2F39'%20stroke-width='1.4'%20stroke-linecap='round'/%3e%3cpath%20d='M2.2%2011C2.2%2011.9941%203.00589%2012.8%204%2012.8C4.99411%2012.8%205.8%2011.9941%205.8%2011C5.8%2010.0059%204.99411%209.2%204%209.2C3.00589%209.2%202.2%2010.0059%202.2%2011Z'%20stroke='%232E2F39'%20stroke-width='1.4'%20stroke-linecap='round'/%3e%3c/svg%3e";
+function ee({ rootSelector: e, mode: a, language: r, theme: i, tokenData: n, onGetData: c, onRollbackClick: d, domainUrl: v, productName: x, productDescription: b, tags: O, onLimitReached: N }) {
+  var _, F;
+  const s = document.querySelector(e);
+  J(s);
+  const t = l[s.id];
+  t.$root = s, t.mode = a, t.language = r || "en", t.theme = i || "light", t.tokenData = n, t.onGetData = c || (() => {
+  }), t.onRollbackClick = d || (() => {
+  }), t.fetchedData = [], t.domainUrl = v, t.productName = x, t.productDescription = b, t.tags = O || "", t.originalProductName = x, t.originalDescription = b, t.originalTags = O || "", t.onLimitReached = N || (() => {
+  }), ne(s), s.querySelectorAll(".option").forEach((o) => {
+    o == null || o.addEventListener("click", (f) => te(f, t));
+  }), (_ = s.querySelector("#select-add-emoji")) == null || _.addEventListener("change", (o) => ae(o, t)), (F = s.querySelector(".custom-checkbox")) == null || F.addEventListener("click", (o) => s.querySelector("#select-add-emoji").click());
+  const { rollbackButton: m, settingsButton: h, initButton: w } = $(s.id), g = t.$root.querySelector(".wrapper"), C = t.$root.querySelector(".buttons-wrapper");
+  function D() {
+    g.classList.toggle("d-none"), g.classList.contains("d-none") ? [m, h].forEach((o) => o.classList.remove("d-flex")) : h.classList.add("d-flex");
+  }
+  h == null || h.addEventListener("click", () => {
+    const o = C.getBoundingClientRect();
+    g.style.transform = `translate(calc(-90% + ${o.width - 30}px)`, D();
+  });
+  function E(o) {
+    !g.contains(o.target) && !C.contains(o.target) && !g.classList.contains("d-none") && D();
+  }
+  document.addEventListener("click", E), window.addEventListener("popstate", () => {
+    document.removeEventListener("click", E), s.innerHTML = "";
+  }), m == null || m.addEventListener("click", () => {
+    t.onRollbackClick(), m.classList.add("d-none"), h.classList.remove("d-flex"), g.classList.add("d-none");
+  }), w == null || w.addEventListener("click", async () => {
+    var f, j;
+    let o;
+    try {
+      if (g.classList.add("d-none"), t.isLoading || t.isReady)
+        return;
+      S(!0, s.id);
+      const k = q[t.mode];
+      t.fetchedData.length || (o = await k({
+        style: t.toneOfVoice,
+        length: t.length,
+        structure: t.structure,
+        addEmoji: t.addEmoji,
+        token: t.tokenData.token,
+        domainUrl: t.domainUrl,
+        product_name: t.productName,
+        description: t.productDescription,
+        tags: t.tags,
+        onLimitReached: t.onLimitReached,
+        original_product_name: t.originalProductName,
+        original_description: t.originalDescription,
+        original_tags: t.originalTags
+      }), Array.isArray(o) && o.length && (t.fetchedData = o)), (f = t.fetchedData) != null && f.length && (t.mode === "tags" ? (t.onGetData(t.fetchedData), t.fetchedData = []) : t.onGetData((j = t.fetchedData) == null ? void 0 : j.shift())), S(!1, s.id), o && await K(!0, s.id);
+    } catch (k) {
+      console.log(k), S(!1, s.id);
+    }
+  }, !1);
+}
+function te(e, a) {
+  var c, d;
+  const { stateparam: r } = e.target.dataset, i = (d = (c = e.target) == null ? void 0 : c.dataset) == null ? void 0 : d.value;
+  if (a[r] === i)
+    return;
+  a[r] = i, a.fetchedData = [], a.$root.querySelectorAll(`.option[data-stateparam="${r}"]`).forEach((v) => v.classList.remove("active")), e.target.classList.add("active");
+}
+function ae(e, a) {
+  a.addEmoji = e.target.checked;
+}
+function y(e, a, r) {
+  return e.map((i) => `
+	<div
+		class="option ${r[a] === i ? "active" : ""}"
+		data-value="${i}"
+		data-stateparam="${a}"
+	>
+		${u[r.language][i]}
+	</div>`).join("");
+}
+function ie(e) {
+  const { toneOfVoice: a, length: r, structure: i } = H[e.mode];
+  return `
+    <div class="wrapper d-none">
+      ${a ? `
+      <div class="wrapper__row">
+        <div class="name">${u[e.language]["Tone of voice"]}</div>
+        <div class="options">
+          ${y(U, "toneOfVoice", e)}
+        </div>
+      </div>
+      ` : ""}
+
+      ${r ? `
+      <div class="wrapper__row">
+        <div class="name">${u[e.language].Length}</div>
+        <div class="options">
+          ${y(B, "length", e)}
+        </div>
+      </div>
+      ` : ""}
+
+      ${i ? `
+      <div class="wrapper__row">
+        <div class="name">${u[e.language].Structure}</div>
+        <div class="options">
+          ${y(V, "structure", e)}
+          <div class='checkbox'>
+            <input id='select-add-emoji' type='checkbox' ${e.addEmoji ? "checked" : ""} />
+            <span class='custom-checkbox'></span>
+            ${u[e.language]["Add emoji"]}
+          </div>
+        </div>
+      </div>
+      ` : ""}
+      <div>
+       ${re(e)}
+    </div>
+  `;
+}
+function re(e) {
+  return `
+	    <svg class="triangle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="8" viewBox="0 0 16 8" fill="none">
+        <path d="M9.41421 6.58579C8.63317 7.36683 7.36684 7.36683 6.58579 6.58579L0 0H16L9.41421 6.58579Z" fill="${e.theme === "light" ? "#fff" : "#272c34"}"/>
+			</svg></div>
+			`;
+}
+function ne(e) {
+  e.innerHTML = `
+  <div id="zd-ai-helper-container">
+   ${ie(l[e.id])}
+    <div class="buttons-wrapper">
+      <div class="init-button ai-button">
+        <img src="${L}" alt="ai-icon" />
+      </div>
+      <div class="rollback-button ai-button d-none" >
+        <img src="${Q}" alt="rollback-icon" />
+      </div>
+      <div class="settings-button ai-button">
+        <img src="${X}" alt="settings-icon" />
+      </div>
+    </div>
+  </div>
+  `;
+}
+window.setupAiWidget = ee;
+window.transalteProductWithAI = T;
+window.updateAiWidgetState = Y;

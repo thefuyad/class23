@@ -1,0 +1,163 @@
+/* all comon css start here */
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: "Archivo Black", sans-serif;
+}
+a,a:hover{
+    text-decoration: none;
+    display: inline-block;
+}
+ul,ol{
+    list-style-type: none;
+}
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+    padding: 0;
+    line-height: 0.8;
+}
+/* all comon css end here */
+
+/* nav link part start here */
+.navbar img{
+    width: 100px;
+}
+.nav-link{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    padding: 0 35px !important;
+}
+.nav-link:hover{
+    color: #B88E2F;
+
+}
+
+
+.icons i{
+    padding: 0 15px;
+    color: #000;
+}
+.icons i:hover{
+    color: #B88E2F;
+}
+/* nav link part start here */
+
+#shop{
+    padding: 50px 0;
+    background: rgb(255, 255, 255);
+    height: 1000px;
+    text-align: center;
+}
+.imgpart img{
+    width: 100%;
+    height: 300px;
+    margin-bottom: 60px;
+}
+.imgpart h3{
+    text-align: center;
+    background: #000000;
+    padding: 10px 0;
+    color: #ffffff;
+}
+   /* about part start here */
+#about{
+    padding: 150px 0;
+    background-color: aquamarine;
+}
+.abouttitle h2{
+    text-align: center;
+}
+.abouttitle a {
+    color: #000000;
+    margin-top: 20px;
+    margin-left: 570px;
+    border: 1px solid #000000;
+    background:transparent;
+    padding: 17px 10px;
+    border-radius: 15px;
+    
+}
+
+.body{
+    scroll-behavior: smooth;
+}
+
+/* slider part start here */
+.sliderone {
+    background: url(../images/pexels-olly-3979134.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 400px 0;
+}
+.oberly {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); 
+}
+.two {
+    background: url(../images/pexels-gustavo-fring-3985331.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 400px 0;
+}
+.three {
+    background: url(../images/pexels-burst-373939\ \(1\).jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 400px 0;
+}
+.prev{
+    font-size: 100px;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+.next{
+    font-size: 100px;
+    color: #fbfbfb;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+
+/* Slick dots start */
+.slick-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex !important;
+  justify-content: center;
+  gap: 10px;
+  z-index: 2;
+}
+.slick-dots li button {
+  font-size: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+ background-color: #000000;
+}
+
+.slick-dots li.slick-active button {
+  background-color: white; 
+}
+
+
