@@ -1,0 +1,996 @@
+
+<!-- saved from url=(0011)about:blank -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" nonce="" id="font-family-url" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"><style nonce="" id="Open-Sans"> body, *, [font='font-Open-Sans'] {font-family: 'Open Sans', system-ui;}</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style nonce="" id="checklist-custom-css"></style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style><style id="style_aa" nonce="">*{
+            --task-completion-color: #1EC780;
+          }</style></head><body><style nonce="">*:focus, *:focus-visible {
+  outline: none;
+}
+
+body {
+  overflow: hidden;
+  margin: 0px;
+  outline: none !important;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  position: absolute;
+  bottom: 0px;
+  padding: 12px;
+  align-items: flex-end;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.main-container[position="left"] {
+  align-items: flex-start;
+}
+
+.main-container[userpilot-list-direction="left"] {
+  left: 0px;
+}
+
+.main-container[position="right"] {
+  text-align: right;
+  right: 0px;
+}
+
+.main-container > * {
+  display: block;
+}
+
+div {
+  display: inline-block;
+  font-size: 16px;
+}
+
+div,
+div * {
+  box-sizing: border-box;
+}
+
+div.content-container {
+  width: 100%;
+}
+
+.main-container[userpilot-checklist-open] div.container:not(.controller) {
+  top: 0px;
+  opacity: 1;
+}
+
+div.container:not(.controller) {
+  display: inline-block;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0px 0px 18px -12px #5d5d5d;
+  position: relative;
+  width: 350px;
+  margin-bottom: 15px;
+  text-align: left;
+  transition: all 0.2s;
+  top: 10px;
+  opacity: 0;
+}
+
+header.header {
+  box-sizing: border-box;
+  background: #0640f9;
+  color: inherit;
+  width: 100%;
+  padding: 16px 24px;
+  position: relative;
+}
+
+div.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  overflow: auto;
+}
+
+div.header-icon,
+div.completion-icon {
+  width: 30px;
+}
+
+div.header-icon:empty, div.completion-icon:empty {
+  display: none;
+}
+
+div.header-icon > *,
+div.completion-icon > * {
+  display: block;
+  max-width: 24px;
+  max-height: 24px;
+}
+
+div.close-button {
+  top: 12px;
+  right: 12px;
+  position: absolute;
+  cursor: pointer;
+  width: auto;
+  height: 10px;
+}
+
+div.title {
+  font-size: 18px;
+  font-weight: 700;
+  width: auto;
+  overflow: auto;
+}
+
+div.description {
+  font-size: 14px;
+  margin-top: 6px;
+  width: 100%;
+  overflow: auto;
+}
+
+div.description:empty {
+  display: none;
+}
+
+div.progress-container {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  position: relative;
+}
+
+div.progress {
+  width: 100%;
+  border-radius: 2rem;
+  text-align: left;
+  background: whitesmoke;
+  margin-top: 7px;
+  padding: 6px;
+  overflow: auto;
+}
+
+div.progress-width {
+  height: 7px;
+  border-radius: 2rem;
+  min-width: 13px;
+  transition: width 0.6s ease 0s;
+}
+
+div.experiences {
+  display: block;
+  max-height: 440px;
+  overflow: auto;
+}
+
+div.experiences > * {
+  display: block;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  padding: 17px 24;
+  width: 100%;
+  margin: 0px auto;
+}
+
+div.experiences > *:last-child {
+  margin: 0px auto;
+  border: none;
+}
+
+div.experiences > .task-item.experience[expanded-task]::after {
+  height: calc(50% + 30px)
+}
+
+div.experiences > .task-item.experience::after {
+  content: "";
+  height: 50%;
+  width: 1px;
+  position: absolute;
+  left: 31px;
+  margin: auto;
+  bottom: 0px;
+  border-left: 1px solid var(--task-completion-color);
+  z-index: 0;
+}
+
+div.experiences > .task-item.experience::before {
+  content: "";
+  height: 50%;
+  width: 1px;
+  position: absolute;
+  left: 31px;
+  margin: auto;
+  top: 0px;
+  border-left: 1px solid var(--task-completion-color);
+}
+
+
+div.experiences > .task-item.experience:first-child::before {
+  border: none;
+}
+div.experiences > .task-item.experience:last-child::after {
+  border: none;
+}
+
+div.task-status {
+  width: auto;
+  margin-top: 2px;
+}
+div.task-status > span {
+  content: " ";
+  width: 18px;
+  height: 18px;
+  border: 1px solid #afafaf;
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: middle;
+  text-align: center;
+  background-color: white;
+}
+
+div.task-content {
+  gap: 2px;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  font-weight: 600;
+  position: relative;
+  align-items: center;
+  word-break: break-word;
+}
+
+div.task-title-container {
+  width: 100%;
+  padding-left: 10px;
+}
+
+div.task-title {
+  font-size: 14px;
+}
+
+.experience[template="1"] .task-dropdown-controller {
+  display: none;
+}
+
+.task-dropdown-controller {
+  opacity: 0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s;
+  background-color: transparent;
+}
+
+.task-dropdown-controller:focus {
+  opacity: 1;
+  visibility: visible;
+}
+
+[expanded-task] .task-dropdown-controller {
+  transform: rotate(-90deg);
+}
+
+.task-dropdown-controller svg {
+  fill: gray;
+}
+
+footer.footer {
+  /* position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px; */
+  color: gray;
+  padding: 15px 12px 12px;
+  text-align: center;
+  display: block;
+}
+
+footer.footer > * {
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+footer.footer > .dismiss:empty {
+  display: none;
+}
+
+div.dismiss:before,
+div.dismiss:after {
+  width: 15px;
+  background: #b2b2b2;
+  height: 1px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 6px;
+  position: relative;
+  top: -1px;
+}
+
+.controller {
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+}
+
+button.controller.container {
+  padding: 0px;
+  border: none;
+}
+
+.controller.container .open {
+  visibility: hidden;
+  height: 0px;
+  display: none;
+}
+
+.controller.container .open svg {
+  transform: scale(0);
+  transition: transform 0.4s;
+}
+
+[userpilot-checklist-open] .controller.container .open svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+  margin-top: 15px;
+  transform: scale(1);
+}
+
+.controller.open {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  color: inherit;
+  line-height: 50px;
+  font-size: 25px;
+}
+
+.controller.closed {
+  line-height: initial;
+  font-size: 16px;
+  padding: 0px;
+  color: inherit;
+  white-space: nowrap;
+  display: inherit;
+}
+
+.controller.closed > * {
+  pointer-events: none;
+  width: 100%;
+  overflow: hidden;
+}
+
+.controller.container {
+  transition: width 0.2s, opacity 0.2s;
+  box-shadow: 0px 0px 14px -9px #000000;
+  border-radius: 2rem;
+  width: 0px;
+  overflow: hidden;
+  min-height: 40px;
+  position: relative;
+}
+
+.main-container[beacon="icon_in_circle"] .controller.container,
+.main-container[beacon="icon_in_square"] .controller.container {
+  min-height: 48px;
+}
+
+
+[userpilot-checklist-open] .controller.container {
+  width: 50px;
+}
+
+div.label-container {
+  height: 0px;
+  width: 100%;
+  position: relative;
+  transition: height 0.3s;
+  overflow: hidden;
+  cursor: pointer;
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+div.task-label {
+  width: 100%;
+  font-size: 13px;
+  padding-top: 4px;
+}
+
+div.task-label:empty {
+  display: none;
+}
+
+div.task-action {
+  height: 0px;
+  overflow: hidden;
+  transition: all 0.3s;
+  padding-left: 15px;
+  width: 100%;
+  margin-top: 0px;
+}
+
+[expanded-task="1"] div.task-action {
+  margin-top: 8px;
+}
+
+.button {
+  color: white;
+  background: #4a5058;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.list-content.button.url-type {
+  background: none !important;
+  border-width: 0px;
+  text-align: left;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+
+.main-container[progress="1"] div.experiences > [chronological-disabled-step] {
+  opacity: 0.4;
+}
+
+.main-container[progress="1"]
+  div.experiences
+  > [chronological-disabled-step]:last-child
+  div.task-action {
+  display: none;
+  height: 0px;
+}
+
+.main-container[template="2"] div.experiences > * {
+  padding: 15px 10px 15px 18px;
+}
+
+.main-container[template="2"] div.experiences {
+  padding: 5px 0px;
+}
+
+.main-container[template="2"] header.header {
+  padding: 18px 20px 35px;
+}
+
+div.task-label-content {
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+div.image {
+  width: 100%;
+}
+
+div.completion-image {
+  padding: 85px 20px 70px;
+  display: block;
+  text-align: center;
+  line-height: 0;
+}
+
+div.completion-image svg {
+  width: 35px;
+}
+
+div[class^="ripple"] {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  border: 5px solid;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin: 0px auto;
+  top: 55px;
+  opacity: 0.65;
+}
+
+div.ripple.outer-ripple {
+  transform: scale(1.5);
+  border-width: 1px;
+  opacity: 0.17;
+  margin-top: 3px;
+}
+
+div.ripple.middle-ripple {
+  transform: scale(1.25);
+  border-width: 3px;
+  opacity: 0.37;
+  margin-top: 2px;
+}
+
+div.completion-header {
+  width: 100%;
+  text-align: center;
+}
+
+div.completion-header div.title {
+  font-size: 23px;
+  margin-bottom: 11px;
+}
+
+div.completion-header div.description {
+  font-size: 16px;
+  width: 67%;
+}
+
+div.completion-footer {
+  width: 100%;
+  text-align: center;
+}
+
+div.completion-footer div.dismiss {
+  padding: 40px 0px 40px;
+  color: #565656;
+  cursor: pointer;
+}
+
+[text_completion_dismiss_button] {
+  display: none;
+}
+
+[completed="1"] [text_dismiss_dismiss] {
+  display: none;
+}
+[completed="1"] [text_completion_dismiss_button] {
+  display: inline-block;
+}
+
+div.completion-footer div.dismiss:before,
+div.completion-footer div.dismiss:after {
+  width: 0px;
+}
+
+.main-container[beacon="text_only"] upt-list.beacon-icon {
+  display: none;
+}
+
+.main-container[beacon="icon_in_circle"] upt-list.beacon-text,
+.main-container[beacon="icon_in_square"] upt-list.beacon-text {
+  display: none;
+}
+
+.main-container[beacon="icon_in_circle"] .controller.closed,
+.main-container[beacon="icon_in_square"] .controller.closed {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+upt-list.beacon-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  /* border-radius: 100%; */
+  margin-left: 15px;
+  margin-right: -10px;
+  /* background-size: 100% 100% !important; */
+  background-size: contain;
+  background-position: 50% 50% !important;
+  background-repeat: no-repeat;
+}
+
+upt-list.beacon-text {
+  display: inline-block;
+  line-height: 40px;
+  vertical-align: middle;
+  height: 40px;
+  padding: 0px 16px;
+}
+
+.main-container[beacon="icon_in_circle"] upt-list.beacon-icon,
+.main-container[beacon="icon_in_square"] upt-list.beacon-icon {
+  margin: 0px;
+  height: 24px;
+  width: 24px;
+}
+
+.main-container[beacon="icon_in_square"] .controller.container {
+  border-radius: 5px;
+}
+
+.main-container[beacon="icon_in_square"] upt-list-badge,
+.main-container[beacon="icon_in_square"] upt-list-completed-badge {
+  top: -8px;
+  right: -8px;
+}
+
+[task-completed] div.task-content div.task-title {
+  text-decoration: line-through;
+}
+
+/* 1 */
+[task-completed] div.task-status > span {
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  position: relative;
+  border: none;
+}
+[task-completed] div.task-status > span > svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+}
+
+.controller.container:hover {
+  opacity: 0.9;
+}
+
+div.task-caret {
+  opacity: 0;
+  transform: rotate(90deg);
+  transition: all 0.15s linear 0s;
+}
+
+[template="2"].experience:hover .task-dropdown-controller {
+  opacity: 1;
+}
+
+.experience[template="1"]:hover div.task-caret {
+  opacity: 1;
+}
+
+div[style_container_hover_type="light"] > .experience:hover {
+  transition: background-color 0.15s linear 0s;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+div[style_container_hover_type="dark"] > .experience:hover {
+  transition: background-color 0.15s linear 0s;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+div.experiences > .experience:hover .task-status {
+  opacity: 1;
+}
+
+[beacon="icon_in_circle"][userpilot-checklist-open] .controller.container,
+[beacon="icon_in_square"][userpilot-checklist-open] .controller.container {
+  width: 42px;
+  height: 48px;
+}
+
+[beacon="icon_in_circle"][userpilot-checklist-open] .controller.container svg,
+[beacon="icon_in_square"][userpilot-checklist-open] .controller.container svg {
+  margin-top: 20px;
+}
+
+[beacon="icon_in_circle"][userpilot-checklist-open] .controller.container .open,
+[beacon="icon_in_square"][userpilot-checklist-open]
+  .controller.container
+  .open {
+  height: 42px;
+}
+
+[userpilot-checklist-open][position-top] div.container:not(.controller) {
+  margin-bottom: 0px;
+  margin-top: 15px;
+}
+
+/* 2 */
+div[userpilot-show-steps] {
+  position: absolute;
+  display: inline-block;
+  width: 20px;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+
+div[userpilot-show-steps]:hover {
+  background: #0000000d;
+}
+
+div[userpilot-show-steps] svg {
+  height: 15px;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+div[userpilot-show-steps]:hover svg {
+  opacity: 0.5;
+}
+
+/* 3 */
+div.header div.image {
+  margin-top: 20px;
+}
+
+div.header div.completion-image {
+  padding: 10px;
+  position: relative;
+}
+
+div.header div.completion-image div[class^="ripple"] {
+  width: 50px;
+  height: 50px;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+}
+
+div.header div.completion-image svg {
+  width: 25px;
+}
+
+div.header div.completion-header div.title {
+  margin: auto;
+  margin-top: 32px;
+}
+
+div.completion-header .dismiss {
+  width: 100%;
+  font-size: 15px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+div.completion-header .dismiss::before,
+div.completion-header .dismiss::after {
+  display: none;
+}
+
+/* 4 */
+.userpilot-builder-section.userpilot-text-section a {
+  text-decoration: none;
+}
+
+upt-list-badge,
+upt-list-completed-badge {
+  position: absolute;
+  overflow: visible;
+  display: inline-block;
+  z-index: 9999;
+  font-size: 12px;
+  line-height: 20px;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  border-radius: 100%;
+  color: black;
+  background: #ffffff;
+  border: 2px solid white;
+  top: -12px;
+  right: -2px;
+  transform: scale(0);
+  opacity: 0;
+  font-weight: bold;
+  transition: transform 0.3s, opacity 0.3s;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+upt-list-completed-badge svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+div.dismiss-popup-container {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  /* height: 225px; */
+}
+
+div.dismiss-popup-container .dismiss-popup-header {
+  display: block;
+  width: auto;
+  font-size: 18px;
+  padding: 16px 24px 0px;
+  color: #3f3f3f;
+  text-align: center;
+}
+
+div.dismiss-popup-container .dismiss-title {
+  font-size: 16px;
+  font-weight: 700;
+  width: 100%;
+}
+
+div.dismiss-popup-container .dismiss-prompt {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+div.dismiss-popup-container .dismiss-buttons {
+  padding: 16px 24px;
+  text-align: center;
+  display: flex;
+  font-size: 14px;
+  justify-content: center;
+  column-gap: 16px;
+}
+div.dismiss-popup-container .dismiss-buttons > * {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 2px solid #fff;
+  font-size: inherit;
+  font-weight: 700;
+}
+div.dismiss-popup-container .dismiss-buttons > .cancel-dismiss {
+  cursor: pointer;
+  color: #fff;
+  background: #4a5058;
+  border-color: #4a5058;
+}
+
+div.dismiss-popup-container .dismiss-buttons > .confirm-dismiss {
+  cursor: pointer;
+  border: 2px solid rgb(103, 109, 115);
+  color: #282829;
+  background: white;
+}
+
+div.dismiss-popup-container .dismiss-buttons > .confirm-dismiss svg {
+  width: 11px;
+  margin-right: 4px;
+}
+
+div.progress-container div:first-child {
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  text-align: right;
+  line-height: 1;
+}
+
+div.progress-container div.progress-content {
+  top: -13px;
+  position: absolute;
+  width: 100%;
+}
+
+[userpilot-checklist-open] .main-container[position="right"] {
+  text-align: right;
+}
+
+[userpilot-checklist-open] .main-container[position="left"] {
+  text-align: left;
+}
+
+[rtl] {
+  direction: rtl;
+}
+.main-container[position="left"][rtl] {
+  text-align: left;
+  align-items: flex-end;
+}
+
+.main-container[position="right"][rtl] {
+  text-align: right;
+  align-items: flex-start;
+}
+
+[rtl] upt-list.beacon-icon {
+  margin-right: 15px;
+  margin-left: -10px;
+}
+[rtl] div.close-button {
+  right: initial;
+  left: 12px;
+}
+
+[rtl] header.header,
+[rtl] div.header-icon,
+[rtl] div.header-container,
+[rtl] div.task-content,
+[rtl] div.task-status [rtl] div.task-title-container,
+[rtl] div.experiences > * {
+  text-align: right;
+}
+
+[rtl] div.header-icon > *,
+[rtl] div.completion-icon > * {
+  margin-right: 0px;
+  margin-left: 20px;
+}
+
+[rtl] div.progress-container span {
+  right: initial;
+  left: 0px;
+  transform: translate(-55%, calc(-100% - 8px));
+  text-align: left;
+}
+
+[rtl] div.task-title-container {
+  margin-left: 0px;
+  padding-right: 10px;
+}
+
+[rtl] div.task-caret {
+  right: initial;
+  transform: rotate(180deg);
+}
+
+[rtl] .task-dropdown-controller {
+  right: initial;
+}
+[rtl] [expanded-task] .task-dropdown-controller {
+  transform: rotate(90deg);
+}
+
+[rtl] .list-content.button.url-type {
+  text-align: right;
+}
+
+[rtl] upt-list-badge,
+[rtl] upt-list-completed-badge {
+  right: initial;
+  left: -3px;
+}
+
+.main-container[beacon="icon_in_square"][rtl] upt-list-badge,
+.main-container[beacon="icon_in_square"][rtl] upt-list-completed-badge {
+  right: initial;
+  top: -8px;
+  left: -8px;
+}
+
+.main-container[rtl] div.progress {
+  text-align: right;
+}
+
+[rtl] div.header-icon, [rtl] div.completion-icon {
+  padding-right: 0px;
+  padding-left: 10px;
+}</style> <style nonce="">.progress .progress-width{width:50%}.controller#badge-container{position:relative;width:fit-content}.main-container div.container{display:none}</style> <main class="main-container" font="font-Open-Sans" beacon="icon_and_text" position="right" progress="1" initiated="1" style="font-family: &quot;Open Sans&quot;;"> <div class="container" inner="" tabindex="-1" aria-hidden="true" aria-label="entering checklist" style_container_dismiss_enabled="" dismiss_enabled="true" style="display: none;">  <style nonce="">.dismiss-popup-container{display:none}</style> <div class="dismiss-popup-container" tabindex="0" style="bottom: 0px; left: 0px; display: none; background: white; z-index: 1;"> <div style="width: 100%; inset: 0px; margin: auto;"> <div class="dismiss-popup-header" style_container_background_color="" style="background: rgb(255, 255, 255);"> <div class="dismiss-prompt" tabindex="0" text_dismiss_prompt="" style_tasks_text_color="" style="color: rgb(73, 80, 87);">Are you sure you want to miss out on $100 in order credits?</div> </div> <div class="dismiss-buttons" style_container_background_color="" style="background: rgb(255, 255, 255);"> <div class="cancel-dismiss" role="button" tabindex="0" style_tasks_cta_color="" style_tasks_cta_font_color="" text_dismiss_keep_button="" style="background: rgb(132, 114, 237); border-color: rgb(132, 114, 237); color: rgb(255, 255, 255);">Get $100</div> <div class="confirm-dismiss" role="button" tabindex="0" text_dismiss_dismiss_button="">I don't need $100</div> </div> </div> </div> <header class="header" tabindex="-1" style_header_background_color="" style="background: rgb(132, 114, 237);"> <div class="close-button" role="button" tabindex="0" aria-label="close checklist" style_close_button_icon="" style_close_button_type="minimize" style="display: inline-block;"><svg class="closeButton-0-2-50 minimizeButton-0-2-52" title="minimize checklist" tabindex="-1" width="14" height="7" viewBox="0 0 14 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 0.999805L7 5.7998L13 0.999806" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg></div> <div class="header-container"> <div class="header-icon"></div> <div class="title" aria-label="💰Earn your first $100" role="heading" aria-level="1" tabindex="0" text_header_title="" style_header_text_color="" style="color: rgb(255, 255, 255);">💰Earn your first $100</div> <div class="description" tabindex="0" aria-label="Get $100 in order credits by completing steps" role="heading" aria-level="2" text_header_subheader="" style_header_text_color="" style="color: rgb(255, 255, 255);">Get $100 in order credits by completing steps</div> </div>  <div class="progress-container"> <div class="progress-content" style_header_text_color="" style="color: rgb(255, 255, 255);"> <span class="completed-steps">33%</span> <span class="total-steps"></span> </div> <div class="progress" tabindex="0" role="contentinfo" aria-label="Completed 33% of checklist"> <div class="progress-width" style_header_progress_bar_color="" style="width: 33%; background: rgb(30, 199, 128);"></div> </div> </div> </header> <div class="content-container" style_container_background_color="" style="background: rgb(255, 255, 255);"> <div class="experiences" style_container_hover_type="dark" style="max-height: 384px;"><div class="task-item experience completed-task" tabindex="0" role="link" experience_id="" fn="" cid="69" aria-label="Connect a Store Get started by connecting your store and begin fulfilling orders today! 🚀🚀 - Task Completed" u="https://app.zendrop.com/my-stores/connect-shopify" g="1" template="1" task-completed="1"> <div class="task-content"> <div class="task-status"> <span style_tasks_completion_color="" style="background: rgb(30, 199, 128); border-color: rgb(30, 199, 128);"><svg class="checkIcon-0-5-204" title="icon" tabindex="-1" width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4L4 7.5L12 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span> </div> <div class="task-title-container" style_tasks_text_color="" style="color: rgb(73, 80, 87);"> <div class="task-title">Connect a Store</div> <div class="label-container" style="height: auto;"> <div class="task-label">Get started by connecting your store and begin fulfilling orders today! 🚀🚀</div> </div> </div>  <div class="task-caret" style_tasks_caret_color=""> <svg width="16" height="16" viewBox="0 0 16 16" title="icon" tabindex="-1" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M7.56857 5.13741C7.82982 4.9542 8.17018 4.9542 8.43143 5.13741L14.6536 9.50098C15.011 9.75163 15.1076 10.2596 14.8693 10.6356C14.631 11.0116 14.1481 11.1132 13.7907 10.8625L8 6.80149L2.20928 10.8625C1.85187 11.1131 1.36898 11.0116 1.13071 10.6356C0.892437 10.2596 0.989016 9.75163 1.34642 9.50098L7.56857 5.13741Z" fill="#282829" style="fill: rgb(221, 226, 229);"></path> </svg> </div> </div>  </div><div class="task-item experience completed-task" tabindex="0" role="link" experience_id="" fn="" cid="75" aria-label="Import Your First Product ✨ Quickly enrich your store with hand-picked winning products ✨ - Task Completed" u="https://app.zendrop.com/onboarding-store" g="1" template="1" task-completed="1"> <div class="task-content"> <div class="task-status"> <span style_tasks_completion_color="" style="background: rgb(30, 199, 128); border-color: rgb(30, 199, 128);"><svg class="checkIcon-0-5-204" title="icon" tabindex="-1" width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4L4 7.5L12 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span> </div> <div class="task-title-container" style_tasks_text_color="" style="color: rgb(73, 80, 87);"> <div class="task-title">Import Your First Product</div> <div class="label-container" style="height: auto;"> <div class="task-label">✨ Quickly enrich your store with hand-picked winning products ✨</div> </div> </div>  <div class="task-caret" style_tasks_caret_color=""> <svg width="16" height="16" viewBox="0 0 16 16" title="icon" tabindex="-1" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M7.56857 5.13741C7.82982 4.9542 8.17018 4.9542 8.43143 5.13741L14.6536 9.50098C15.011 9.75163 15.1076 10.2596 14.8693 10.6356C14.631 11.0116 14.1481 11.1132 13.7907 10.8625L8 6.80149L2.20928 10.8625C1.85187 11.1131 1.36898 11.0116 1.13071 10.6356C0.892437 10.2596 0.989016 9.75163 1.34642 9.50098L7.56857 5.13741Z" fill="#282829" style="fill: rgb(221, 226, 229);"></path> </svg> </div> </div>  </div><div class="task-item experience" tabindex="0" role="link" experience_id="" fn="" cid="74" aria-label="Learn How to Build a Successful Business ✍️ Join a Free Coaching Session to boost your dropshipping skills" u="https://zendrop.easywebinar.live/oneclick-registration?attendee_name=Fuyad Hassan&amp;attendee_email=fuyadhassan200@gmail.com" w="1" g="0" template="1"> <div class="task-content"> <div class="task-status"> <span style_tasks_completion_color="" style="border-color: rgb(30, 199, 128);"></span> </div> <div class="task-title-container" style_tasks_text_color="" style="color: rgb(73, 80, 87);"> <div class="task-title">Learn How to Build a Successful Business</div> <div class="label-container" style="height: auto;"> <div class="task-label">✍️ Join a Free Coaching Session to boost your dropshipping skills</div> </div> </div>  <div class="task-caret" style_tasks_caret_color=""> <svg width="16" height="16" viewBox="0 0 16 16" title="icon" tabindex="-1" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M7.56857 5.13741C7.82982 4.9542 8.17018 4.9542 8.43143 5.13741L14.6536 9.50098C15.011 9.75163 15.1076 10.2596 14.8693 10.6356C14.631 11.0116 14.1481 11.1132 13.7907 10.8625L8 6.80149L2.20928 10.8625C1.85187 11.1131 1.36898 11.0116 1.13071 10.6356C0.892437 10.2596 0.989016 9.75163 1.34642 9.50098L7.56857 5.13741Z" fill="#282829" style="fill: rgb(221, 226, 229);"></path> </svg> </div> </div>  </div><div class="task-item experience" tabindex="0" role="link" experience_id="" fn="" cid="72" aria-label="Join Zendrop Academy Learn strategies 🚀 and gain insights ✅ from a like-minded community 🤝!" u="https://zendrop.circle.so/" w="1" g="0" template="1" chronological-disabled-step="1"> <div class="task-content"> <div class="task-status"> <span style_tasks_completion_color="" style="border-color: rgb(30, 199, 128);"></span> </div> <div class="task-title-container" style_tasks_text_color="" style="color: rgb(73, 80, 87);"> <div class="task-title">Join Zendrop Academy</div> <div class="label-container" style="height: auto;"> <div class="task-label">Learn strategies 🚀 and gain insights ✅ from a like-minded community 🤝!</div> </div> </div>  <div class="task-caret" style_tasks_caret_color=""> <svg width="16" height="16" viewBox="0 0 16 16" title="icon" tabindex="-1" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M7.56857 5.13741C7.82982 4.9542 8.17018 4.9542 8.43143 5.13741L14.6536 9.50098C15.011 9.75163 15.1076 10.2596 14.8693 10.6356C14.631 11.0116 14.1481 11.1132 13.7907 10.8625L8 6.80149L2.20928 10.8625C1.85187 11.1131 1.36898 11.0116 1.13071 10.6356C0.892437 10.2596 0.989016 9.75163 1.34642 9.50098L7.56857 5.13741Z" fill="#282829" style="fill: rgb(221, 226, 229);"></path> </svg> </div> </div>  </div><div class="task-item experience" tabindex="0" role="link" experience_id="" fn="" cid="92" aria-label="Share Your Thoughts Help us improve! Leave a quick review and share your experience. 🚀" u="https://www.trustpilot.com/evaluate/zendrop.com" w="1" g="0" template="1" chronological-disabled-step="1"> <div class="task-content"> <div class="task-status"> <span style_tasks_completion_color="" style="border-color: rgb(30, 199, 128);"></span> </div> <div class="task-title-container" style_tasks_text_color="" style="color: rgb(73, 80, 87);"> <div class="task-title">Share Your Thoughts</div> <div class="label-container" style="height: auto;"> <div class="task-label">Help us improve! Leave a quick review and share your experience. 🚀</div> </div> </div>  <div class="task-caret" style_tasks_caret_color=""> <svg width="16" height="16" viewBox="0 0 16 16" title="icon" tabindex="-1" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M7.56857 5.13741C7.82982 4.9542 8.17018 4.9542 8.43143 5.13741L14.6536 9.50098C15.011 9.75163 15.1076 10.2596 14.8693 10.6356C14.631 11.0116 14.1481 11.1132 13.7907 10.8625L8 6.80149L2.20928 10.8625C1.85187 11.1131 1.36898 11.0116 1.13071 10.6356C0.892437 10.2596 0.989016 9.75163 1.34642 9.50098L7.56857 5.13741Z" fill="#282829" style="fill: rgb(221, 226, 229);"></path> </svg> </div> </div>  </div><div class="task-item experience" tabindex="0" role="link" experience_id="" fn="" cid="71" aria-label="Receive $100 Congratulations! 🎉 You&#39;ve completed all the steps!  As a reward, you&#39;ll receive $20 in order credits each month for the next 5 months" u="https://app.zendrop.com/dashboard" g="0" template="2" chronological-disabled-step="1"> <div class="task-content"> <div class="task-status"> <span style_tasks_completion_color="" style="border-color: rgb(30, 199, 128);"></span> </div> <div class="task-title-container" style_tasks_text_color="" style="color: rgb(73, 80, 87);"> <div class="task-title">Receive $100</div> <div class="label-container"> <div class="task-label">Congratulations! 🎉 You've completed all the steps!  As a reward, you'll receive $20 in order credits each month for the next 5 months</div> </div> </div> <button class="task-dropdown-controller" aria-label="expand task details" style_tasks_caret_color=""> <svg width="16" height="16" viewBox="0 0 16 16" title="icon" tabindex="-1" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M1.13071 5.36442C1.36898 4.98845 1.85187 4.88685 2.20928 5.1375L8 9.19851L13.7907 5.1375C14.1481 4.88685 14.631 4.98845 14.8693 5.36442C15.1076 5.74039 15.011 6.24837 14.6536 6.49902L8.43143 10.8626C8.17018 11.0458 7.82982 11.0458 7.56857 10.8626L1.34642 6.49902C0.989016 6.24837 0.892437 5.74039 1.13071 5.36442Z" fill="#282829" style="fill: rgb(221, 226, 229);"></path> </svg> </button>  </div> <div class="task-action"><button class="list-content button button-type" tabindex="-1" style_tasks_cta_color="" style_tasks_cta_font_color="" style="background: rgb(132, 114, 237); border-color: rgb(132, 114, 237); color: rgb(255, 255, 255);">Confirm</button></div> </div></div> <footer class="footer"> <div class="dismiss" role="button" tabindex="0" text_dismiss_dismiss="" style_tasks_text_color="" style="color: rgb(73, 80, 87);">Dismiss</div> <div class="dismiss" role="button" tabindex="0" text_completion_dismiss_button="" style_tasks_text_color="" style="color: rgb(73, 80, 87);">Hide Widget</div> </footer> </div> </div> <div class="controller" tabindex="-1" id="badge-container"> <upt-list-badge class="badge" style="transform: scale(1); opacity: 1;">4</upt-list-badge> <upt-list-completed-badge style_badge_text_color="" style="transform: scale(0); opacity: 0; color: rgb(30, 199, 128);"> <svg title="icon" tabindex="-1" width="11" height="9" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M1 5L3.5 7.5L9.5 1.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </svg> </upt-list-completed-badge> <button class="controller container" tabindex="0" style_beacon_background_color="" style_beacon_text_color="" style_beacon_corner_radius="0" aria-label="Checklist, Get Started, 4 incomplete tasks" style="background: rgb(30, 199, 128); color: rgb(255, 255, 255); border-radius: 25px; width: 145px;" aria-expanded="false"> <div class="controller closed" style="width: 145px;"> <upt> <upt-list class="beacon-icon" style="background-image: url(&quot;https://media.userpilot.io/appex/icons/checklist-white.png&quot;);"></upt-list> <upt-list class="beacon-text" text_beacon_title="">Get Started</upt-list> </upt> </div> </button> </div> </main> </body></html>
